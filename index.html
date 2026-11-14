@@ -105,7 +105,135 @@ body[data-theme="midnight"]{color-scheme:dark}body[data-theme="midnight"] .hero{
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 .preview-sample{display:flex;flex-direction:column;gap:4px;min-width:220px;flex:1}.preview-kicker{font-size:9px;letter-spacing:1.3px;font-weight:900;color:var(--v-primary)}.preview-sample>b{font-size:17px;color:var(--v-text)}.preview-sample>small{color:var(--v-muted)}.preview-pills{display:flex;gap:6px;margin-top:5px}.preview-pills i{font-style:normal;font-size:10px;padding:4px 8px;border-radius:99px;background:var(--v-surface);color:var(--v-primary);border:1px solid var(--v-border)}
-</style><script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script></head>
+</style>
+<!-- VICORA PROFESSIONAL UI LAYER v3: presentation-only overrides -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style id="vicora-pro-ui">
+:root{--font:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;--v-radius:16px;--v-shadow-sm:0 1px 2px rgba(16,37,68,.06),0 2px 8px rgba(16,37,68,.05);--v-shadow:0 2px 4px rgba(16,37,68,.04),0 14px 34px rgba(16,37,68,.09);--v-ring:0 0 0 4px color-mix(in srgb,var(--v-primary) 18%,transparent)}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button,input,select,textarea{font-family:inherit}
+h1,h2,h3{letter-spacing:-.025em;line-height:1.2;color:var(--v-text)}
+h2{font-size:clamp(22px,2.6vw,28px)}h3{font-size:18px}
+.muted,small.muted{color:var(--v-muted)}
+::selection{background:color-mix(in srgb,var(--v-primary) 25%,transparent)}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--v-muted) 40%,transparent);border-radius:99px;border:2px solid transparent;background-clip:content-box}
+.top{padding:12px clamp(16px,4vw,56px);border-bottom:1px solid color-mix(in srgb,#fff 10%,transparent)}
+.brand{font-size:17px;letter-spacing:.14em;gap:12px}
+.brand small{font-size:9.5px;letter-spacing:.22em;margin-top:2px;opacity:.8}
+.top nav{gap:4px}
+.top nav button{background:transparent;color:inherit;opacity:.88;font-size:14px;font-weight:600;padding:9px 14px;border-radius:10px}
+.top nav button:hover{opacity:1;background:color-mix(in srgb,currentColor 12%,transparent);transform:none}
+.top nav button:last-child:not(:first-child){border:1px solid color-mix(in srgb,currentColor 30%,transparent)}
+body[data-theme="signature"] .top{color:var(--v-text);background:rgba(255,255,255,.92);border-bottom:1px solid var(--v-border);box-shadow:0 1px 0 var(--v-border),0 8px 24px rgba(16,37,68,.05)}
+body[data-theme="signature"] .top nav button{color:var(--v-text)}
+body[data-theme="signature"] .brand small{color:var(--v-muted)}
+body:not([data-theme="signature"]) .top{color:#fff}
+.hero{border-radius:26px;padding:clamp(28px,5vw,58px);gap:32px}
+.hero h1{font-size:clamp(30px,4.4vw,50px);font-weight:800;letter-spacing:-.04em;color:#fff}
+.hero p{color:rgba(255,255,255,.82)}
+.eyebrow{color:var(--v-accent);font-size:11.5px;font-weight:700;letter-spacing:.18em}
+body[data-theme="signature"] .eyebrow{color:var(--v-primary)}
+body[data-theme="signature"] .hero .eyebrow{color:#ffd978}
+.hero .actions button:not(.secondary){background:var(--v-accent);color:#10213d;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.hero .actions .secondary{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(6px)}
+.hero-art{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:20px;backdrop-filter:blur(8px)}
+.hero-art strong{font-weight:800;letter-spacing:.06em;color:var(--v-accent)}
+body[data-theme="signature"] .hero-art strong{color:#ffd978}
+.card,.panel{border:1px solid var(--v-border);border-radius:var(--v-radius);box-shadow:var(--v-shadow-sm)}
+.card:hover{transform:translateY(-2px);box-shadow:var(--v-shadow)}
+.card{transition:transform .2s,box-shadow .2s,border-color .2s}
+.pill{background:color-mix(in srgb,var(--v-primary) 10%,var(--v-surface));color:var(--v-primary-strong);font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 11px}
+body[data-theme="midnight"] .pill{color:var(--v-primary)}
+.section-head h2{font-size:22px}
+.stat{font-size:34px;font-weight:800;letter-spacing:-.03em;color:var(--v-primary-strong)}
+body[data-theme="midnight"] .stat{color:var(--v-primary)}
+.panel>h3:first-child,.panel>.eyebrow+h2{margin-top:0}
+button{font-weight:650;font-size:14.5px;letter-spacing:.005em;border-radius:11px;min-height:44px;box-shadow:0 1px 2px rgba(16,37,68,.12)}
+button:active:not(:disabled){transform:translateY(0) scale(.98)}
+button.secondary,button.outline,button.danger{box-shadow:none}
+.outline{border:1px solid var(--v-border);background:var(--v-surface)}
+.outline:hover:not(:disabled){border-color:var(--v-primary);color:var(--v-primary)}
+.danger{border:1px solid color-mix(in srgb,var(--red) 25%,transparent)}
+button.small{min-height:36px;padding:7px 13px;font-size:13px}
+.field label{font-size:12.5px;font-weight:650;color:var(--v-text);opacity:.85}
+.field input,.field select,.field textarea,#userSearch,#tutorQuestion,#adminAIQuestion{border:1px solid var(--v-border);border-radius:11px;background:var(--v-surface);color:var(--v-text);transition:border-color .15s,box-shadow .15s}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:color-mix(in srgb,var(--v-primary) 45%,var(--v-border))}
+.field input:focus,.field select:focus,.field textarea:focus,#userSearch:focus,#tutorQuestion:focus,#adminAIQuestion:focus{border-color:var(--v-primary);box-shadow:var(--v-ring);outline:none}
+#userSearch,#tutorQuestion,#adminAIQuestion{width:100%;padding:12px 14px;font-size:15px;margin:10px 0;display:block}
+#userSearch{max-width:360px}
+.field input[type=file]{padding:9px;background:var(--v-surface-2);border-style:dashed}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%2366758f' stroke-width='2'%3E%3Cpath d='m1 1.5 5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.field small{font-size:12px;line-height:1.5}
+hr{border:0;border-top:1px solid var(--v-border);margin:26px 0}
+.panel[style*="max-width"]{box-shadow:var(--v-shadow);padding:clamp(22px,4vw,36px)}
+.tabs{background:var(--v-surface-2);border:1px solid var(--v-border);padding:5px;border-radius:14px;width:fit-content;max-width:100%;overflow-x:auto}
+.tabs button{background:transparent;color:var(--v-muted);box-shadow:none;min-height:40px;font-size:14px}
+.tabs button:hover:not(.active){color:var(--v-text);background:color-mix(in srgb,var(--v-primary) 8%,transparent)}
+.tabs button.active{background:var(--v-surface);color:var(--v-primary-strong);box-shadow:var(--v-shadow-sm)}
+body[data-theme="midnight"] .tabs button.active{background:#55a7ff;color:#081a2d}
+.tablewrap{border-radius:12px;background:var(--v-surface)}
+th{background:var(--v-surface-2);color:var(--v-muted);font-weight:700;position:sticky;top:0}
+tbody tr:hover td{background:color-mix(in srgb,var(--v-primary) 5%,transparent)}
+td{vertical-align:top}
+.notice{font-size:14px;line-height:1.6;border-left:4px solid var(--v-primary)}
+.notice.success{border-left-color:var(--green)}.notice.error{border-left-color:var(--red)}
+.notice.warning{background:#fff7e6;color:#8a5200;border-left-color:#e0a100}
+#resumeExamNotice{display:block}#resumeExamNotice .small{margin:4px 8px 0 0}
+.ai-chat-log{border-radius:16px;background:var(--v-surface-2);min-height:160px}
+.ai-bubble{box-shadow:var(--v-shadow-sm);font-size:14.5px;line-height:1.65}
+.ai-bubble b{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--v-primary-strong)}
+.ai-bubble.user{background:var(--v-primary);color:#fff;border-color:var(--v-primary)}
+.ai-bubble.user b{color:rgba(255,255,255,.8)}
+body[data-theme="midnight"] .ai-bubble.user{color:#07192b}
+.adminbar h2{margin:3px 0}
+.question{background:var(--v-surface);border-radius:var(--v-radius);box-shadow:var(--v-shadow-sm);padding:22px}
+.question.correct{border-left:5px solid var(--green)}.question.incorrect{border-left:5px solid var(--red)}
+.qmeta{font-weight:700;letter-spacing:.1em}
+.option{border-radius:11px}.option.correct{font-weight:600}
+body[data-theme="signature"] .exam-topbar{background:linear-gradient(110deg,#0d2f66,#1557bd)!important}
+.exam-topbar{box-shadow:0 8px 28px rgba(7,29,56,.28)}
+.exam-mode-chip{border-radius:99px;padding:7px 13px;font-size:10px}
+.exam-brand{font-size:16px;letter-spacing:.14em}
+.exam-timer{border-radius:12px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);font-family:"JetBrains Mono",Consolas,monospace}
+.exam-timer.warning{background:#b97800}.exam-timer.expired{background:#c43d43}
+.exam-exit{border-radius:10px;min-height:40px;box-shadow:none}
+.exam-progress{height:5px}
+.exam-main,.exam-side{border-radius:18px}
+.exam-meta{padding-bottom:14px;border-bottom:1px solid var(--v-border);margin-bottom:22px}
+.exam-question-text{font-weight:600;font-size:clamp(18px,2vw,22px);line-height:1.6;color:var(--v-text)}
+.exam-option{border-radius:13px;border:1.5px solid var(--v-border);background:var(--v-surface);padding:14px 16px;transition:all .14s}
+.exam-option:hover{transform:translateX(2px)}
+.exam-option-letter{border-radius:10px;width:36px;height:36px;background:var(--v-surface-2);color:var(--v-text)}
+.exam-option.selected{box-shadow:0 0 0 3px color-mix(in srgb,var(--v-primary) 14%,transparent)}
+.exam-navigation,.exam-controls{border-top:1px solid var(--v-border);padding-top:20px;margin-top:28px}
+.exam-side h3{color:var(--v-text)}
+.exam-stat{background:var(--v-surface-2);border-radius:11px}.exam-stat b{color:var(--v-primary-strong)}
+.palette-btn{border-radius:9px!important;font-size:13px;box-shadow:none!important}
+.palette-btn:hover{border-color:var(--v-primary)!important;transform:none}
+.palette-btn.current{background:var(--v-primary)!important;color:#fff!important;border-color:var(--v-primary)!important}
+.palette-btn.answered:not(.current){background:#16834a!important;color:#fff!important}
+.palette-btn.flagged{box-shadow:inset 0 0 0 2px #e0a100!important}
+.exam-submit{background:linear-gradient(110deg,var(--v-primary),var(--v-primary-strong))!important;min-height:48px;font-size:15px}
+.exam-shell{background:var(--v-bg)}
+.theme-choice{border-radius:16px!important}
+.theme-choice.active{border:2px solid var(--v-primary)!important}
+.theme-save-panel{border-radius:16px!important}
+.footer{border-top:1px solid var(--v-border);margin-top:40px;font-size:12.5px;letter-spacing:.01em}
+@media(max-width:760px){
+ .top nav button{font-size:13px;padding:8px 11px}
+ .hero h1{font-size:30px}
+ .tabs{width:100%}
+ .actions button{flex:1 1 auto}
+ .exam-option:hover{transform:none}
+ .panel[style*="max-width"]{margin:14px auto!important}
+}
+@media print{.top,.footer,.exam-side,.actions,.tabs{display:none!important}body{background:#fff}.card,.panel,.question{box-shadow:none}}
+:focus-visible{outline:3px solid color-mix(in srgb,var(--v-primary) 45%,transparent);outline-offset:2px}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script></head>
 <body>
 <header class="top"><div class="brand"><div class="mark"><img class="brand-logo" src="/vicora-logo.svg" alt="VICORA"></div><div>VICORA<small>PUBLIC CBT PRACTICE</small></div></div><nav id="nav"><button onclick="show('home')">Home</button><button onclick="show('login')">Sign in</button><button onclick="show('register')">Create account</button><button onclick="show('admin')">Administrator</button></nav></header>
 <main class="wrap">
