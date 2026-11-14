@@ -506,6 +506,7 @@ let tutorMessages=[];let adminAIMessages=[];function renderAIChat(id,messages,la
 restoreBrandTheme();
 updateClassChoices();
 document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.shiftKey&&String(e.key).toLowerCase()==='a'){e.preventDefault();show('admin');}});
+if(location.hash==='#control-room')show('admin');
 loadCatalog();
 async function restoreSavedSession(){if(!sessionToken)return;try{await enterStudent();}catch(e){const reason=String(e&&e.message||e);if(/session has expired|please sign in|session is invalid|practice account is inactive/i.test(reason)){sessionToken='';localStorage.removeItem('vicoraPracticeSession');}else{message('loginMsg','Your login is saved. We could not reconnect right now; check your internet and refresh this page to continue.','error');show('login');}}}
 restoreSavedSession();
