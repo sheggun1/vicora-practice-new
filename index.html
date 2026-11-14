@@ -424,7 +424,7 @@ async function startPractice(){
  try{
    const [fullscreenOk]=await Promise.all([fullscreenPromise]);
    if(proctor){const stream=await cameraPromise;if(!stream)proctor=false;}
-   const q=await api('practice.start',{sessionToken,examType:$('examType').value,schoolLevel:$('examLevel').value,classLevel:$('examClass').value,examMode:proctor?'proctored':'standard',proctorEnabled:proctor,subject,questionCount:count,durationMinutes,testMode});
+   const q=await api('practice.start',{sessionToken,examType:$('examType').value,schoolLevel:$('examLevel').value,classLevel:$('examClass').value,examMode:proctor?'proctored':'standard',proctorEnabled:proctor,cameraConsent:proctor,cameraConsentAt:proctor?new Date().toISOString():'',cameraConsentVersion:'camera-notice-2026-11-14',subject,questionCount:count,durationMinutes,testMode});
    q.testMode=testMode;q.durationMinutes=durationMinutes;q.proctorEnabled=proctor;
    localStorage.setItem('vicoraPracticeMode_'+q.attemptId,testMode);activeAttempt=q;studentExamLocked=true;$('tutorTabButton').classList.add('hidden');answers={};
    if(proctor){document.addEventListener('visibilitychange',onVisibilityChange);renderQuiz(q);const pv=document.getElementById('proctorPreview');if(pv){pv.srcObject=proctorStream;await pv.play().catch(()=>{});}await captureProctorPhoto();proctorCaptureHandle=setInterval(captureProctorPhoto,60000);}
