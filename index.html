@@ -152,5 +152,6 @@ async function saveAISettings(){try{const r=await api('practice.admin.saveAiSett
 async function askTutor(){if(activeAttempt||studentExamLocked||!studentTutorAvailable){$('tutorAnswer').textContent='AI Tutor is locked during an active examination.';return;}try{const question=$('tutorQuestion').value.trim();if(!question)throw Error('Enter a learning question.');$('tutorAnswer').innerHTML='<div class="notice">Preparing your explanation…</div>';const r=await api('practice.ai.tutor',{sessionToken,question});$('tutorAnswer').innerHTML='<div class="notice"><b>VICORA AI · '+esc(r.provider)+'</b><p style="white-space:pre-wrap">'+esc(r.answer)+'</p></div>';}catch(e){$('tutorAnswer').innerHTML='<div class="notice error">'+esc(e.message)+'</div>';}}
 
 updateClassChoices();
-(async()=>{if(sessionToken){try{await enterStudent();}catch(e){sessionToken='';localStorage.removeItem('vicoraPracticeSession');}}})();
+async function restoreSavedSession(){if(!sessionToken)return;try{await enterStudent();}catch(e){const reason=String(e&&e.message||e);if(/session has expired|please sign in|session is invalid|practice account is inactive/i.test(reason)){sessionToken='';localStorage.removeItem('vicoraPracticeSession');}else{message('loginMsg','Your login is saved. We could not reconnect right now; check your internet and refresh this page to continue.','error');show('login');}}}
+restoreSavedSession();
 </script></body></html>
