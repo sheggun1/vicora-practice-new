@@ -105,7 +105,7 @@ body[data-theme="midnight"]{color-scheme:dark}body[data-theme="midnight"] .hero{
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 .preview-sample{display:flex;flex-direction:column;gap:4px;min-width:220px;flex:1}.preview-kicker{font-size:9px;letter-spacing:1.3px;font-weight:900;color:var(--v-primary)}.preview-sample>b{font-size:17px;color:var(--v-text)}.preview-sample>small{color:var(--v-muted)}.preview-pills{display:flex;gap:6px;margin-top:5px}.preview-pills i{font-style:normal;font-size:10px;padding:4px 8px;border-radius:99px;background:var(--v-surface);color:var(--v-primary);border:1px solid var(--v-border)}
-</style>
+.admin-entry-icon{display:inline-grid;place-items:center;vertical-align:middle;margin-left:8px;padding:4px;width:25px;height:25px;border-radius:50%;background:transparent;color:#8791a5;opacity:.42}.admin-entry-icon:hover,.admin-entry-icon:focus-visible{opacity:1;background:#e9edf6;color:#315bea;outline:2px solid #315bea55}.admin-entry-icon svg{width:16px;height:16px;fill:currentColor}</style>
 <!-- VICORA PROFESSIONAL UI LAYER v3: presentation-only overrides -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -325,7 +325,7 @@ body:has(.exam-topbar) main.wrap{width:100%;max-width:100%;padding:0}
 <button class="theme-choice" data-theme-choice="midnight" onclick="previewTheme('midnight')"><div class="theme-swatch"><span style="background:#080f1c;flex:1.2"></span><span style="background:#55a7ff"></span><span style="background:#f5c85b"></span></div><b>05 · Midnight</b><small>Premium dark interface</small></button>
 </div><div class="theme-save-panel" style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:16px;margin:14px 0 18px;border:1px solid var(--v-primary);border-radius:14px;background:var(--v-surface-2)"><div><b style="display:block">Save your website theme</b><small class="muted">Your selected design will become the live theme for all visitors.</small></div><button id="saveThemeButton" type="button" onclick="saveBranding()" style="min-width:210px;padding:13px 20px;font-weight:850">SAVE &amp; APPLY THEME</button></div><div class="design-preview"><div class="preview-brand"><img src="/vicora-logo.svg" alt="VICORA" style="width:42px;height:42px"><span>VICORA <small style="display:block;color:var(--v-muted);font-weight:500">PUBLIC CBT PRACTICE</small></span></div><div class="preview-sample"><span class="preview-kicker">LIVE THEME PREVIEW</span><b>Practice with confidence.</b><small>Readable screens · focused exam workspace · responsive layout</small><div class="preview-pills"><i>Primary</i><i>Junior</i><i>Senior</i></div></div></div><p class="muted" style="font-size:12px;margin-top:12px">The selected theme is saved centrally in Apps Script and applies across devices. It does not alter exams, questions, accounts, scores or AI settings.</p></div></section>
 <section id="results" class="view hidden"><div class="section-head"><div><div class="eyebrow">Practice completed</div><h2>Your result and answer review</h2></div><button class="outline" onclick="studentTab('history');show('student')">Back to dashboard</button></div><div id="resultArea"></div></section>
-</main><footer class="footer">© <span id="year"></span> VICORA · Public CBT Practice · A Veehicee Telecommunications and Services platform
+</main><footer class="footer">© <span id="year"></span> VICORA · Public CBT Practice · A Veehicee Telecommunications and Services platform <button type="button" class="admin-entry-icon" aria-label="Administrator access" title="Administrator access" onclick="show('admin')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.2c0 4.7 3.2 8 7.5 9.8 4.3-1.8 7.5-5.1 7.5-9.8V6L12 3Zm0 4.2a2.3 2.3 0 0 1 2.3 2.3v1h.8v4.8H8.9v-4.8h.8v-1A2.3 2.3 0 0 1 12 7.2Zm-1 3.3h2v-1a1 1 0 0 0-2 0v1Z"/></svg></button>
 <section class="legal-panel" aria-labelledby="privacyHeading">
 <h2 id="privacyHeading">Privacy &amp; Camera</h2>
 <p><b>Camera is optional.</b> If enabled, VICORA shows a preview and takes one still photo about every minute. No audio or video recording.</p>
@@ -506,7 +506,7 @@ let tutorMessages=[];let adminAIMessages=[];function renderAIChat(id,messages,la
 restoreBrandTheme();
 updateClassChoices();
 document.addEventListener('keydown',function(e){if(e.ctrlKey&&e.shiftKey&&String(e.key).toLowerCase()==='a'){e.preventDefault();show('admin');}});
-if(location.hash==='#control-room')show('admin');
+
 loadCatalog();
 async function restoreSavedSession(){if(!sessionToken)return;try{await enterStudent();}catch(e){const reason=String(e&&e.message||e);if(/session has expired|please sign in|session is invalid|practice account is inactive/i.test(reason)){sessionToken='';localStorage.removeItem('vicoraPracticeSession');}else{message('loginMsg','Your login is saved. We could not reconnect right now; check your internet and refresh this page to continue.','error');show('login');}}}
 restoreSavedSession();
